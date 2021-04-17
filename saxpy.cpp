@@ -1,34 +1,44 @@
 
 #include "Halide.h"
 #include <stdio.h>
-#define N 10
+#define N 10 //The size of the vectors a, b and c
 
 
 using namespace Halide;
 int main(int argc, char **argv) {
 
-    Buffer<float> a(N);
-    Buffer<float> b(N);
-    Buffer<float> c(N);
-    float cst=5.0;
-	for(int i=0;i<N; i++){
+    Buffer<float> a(N); //First input vector
+    Buffer<float> b(N); //Second input vector
+    
+    Buffer<float> c(N); //output vector
+    float cst=5.0;      //A scalar 
+    
+    /*initialization of the input vectors*/
+    for(int i=0;i<N; i++){
 	a(i)=i;
 	b(i)=i;
-	}
-    // We also declare the Outputs as public member variables.
-
-	
-    // Typically you declare your Vars at this scope as well, so that
-    // they can be used in any helper methods you add later.
+    }
+    
+    // Declare a variable to iterate through the elements of two vectors
     Var x;
+    
+    //Define the Halide function and pass the name as an argument for debugging
     Func dot("dot");
     
+    //Define the expression of the Func for each x
     dot(x)=cst*a(x)+b(x);
 
+
+    //Call the realize method to test the implementation on our example
     dot.realize(c);
-	for(int i=0;i<N; i++){
+    
+    ///Print the results to terminal
+    for(int i=0;i<N; i++){
+	
 	printf("Halide: result at index %d is %f\n",i,c(i));
-	}
+    
+    }
+    
     /* writing results to result_halide for comparaison*/
     FILE *f = fopen("results_Halide.txt", "w");
 	

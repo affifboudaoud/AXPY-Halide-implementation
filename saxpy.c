@@ -2,18 +2,23 @@
 #include <stdlib.h>
  
 int saxpy(float *, float *, float *,float, int );
-#define N 10
-int
-main(void)
+#define N 10 //The size of the vectors a, b and c
+int main(void)
 {
-        float a[N] ;
-        float b[N] ;
-        float c[N] ;
+        float a[N] ; //test input vector
+        float b[N] ; //test input vector
+        float c[N] ; //result
+
+
+        /*initialization of the input vectors*/
         for(int i=0;i<N;i++){
         	a[i]=i;
         	b[i]=i;
         }
+        
         saxpy(a, b,c, 5.0,  N);
+        
+        //Print results to terminal
         for(int i=0;i<N;i++){
         	printf("C: result at index %d is %f\n",i,c[i]);
         }
@@ -40,7 +45,7 @@ int saxpy(float *a, float *b,float *c, float cst,  int n)
         int i;
 
         for (i = 0; i < n; i++) {
-                c[i]= cst*a[i] + b[i];
+                c[i]= cst*a[i] + b[i]; 
         }
  
         return 0;

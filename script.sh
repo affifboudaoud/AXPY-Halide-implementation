@@ -1,11 +1,24 @@
 #!/bin/sh
-g++ saxpy*.cpp -g -I /home/afif/Downloads/Halide/build/include -L /home/afif/Downloads/Halide/build/src -lHalide -lpthread -ldl -o saxpy_halide -std=c++11
+LD_LIBRARY_PATH=/home/afif/Downloads/Halide/build/src #replace this with <path/to/libHalide.so>
+LD_HEADER_PATH=/home/afif/Downloads/Halide/build/include  #replace this with <path/to/Halide.h>
 
-LD_LIBRARY_PATH=/home/afif/Downloads/Halide/build/src ./saxpy_halide
 
+#Compile Halide program using g++
+g++ saxpy*.cpp -g -I $LD_HEADER_PATH -L $LD_LIBRARY_PATH -lHalide -lpthread -ldl -o saxpy_halide -std=c++11
+
+
+#Run Halide program
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./saxpy_halide
+
+
+#Compile C program using gcc
 gcc saxpy.c -o saxpy_c
 
+#Run C program
 ./saxpy_c
 
+#Compare the two output files
 diff -s results_Halide.txt results_C.txt
 
+#For Windows
+#FC results_Halide.txt results_C.txt
