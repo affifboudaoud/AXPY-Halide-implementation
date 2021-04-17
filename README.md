@@ -1,7 +1,7 @@
 # AXPY-Halide-implementation
-This is my implementation of the BLAS routine: saxpy which given two vectors a and b and a constant cst calculates: c=cst*a+b
+This is my implementation of the BLAS routine: saxpy which given two vectors (*a* and *b*) and a constant *cst* calculates: `c=cst*a+b`
 
-To do this we simply define a Hadile Func that has a variable x (the index on the vectors) and calculate the value of the previously mentioned expression.
+To do this we simply define a Halide Func that has a variable x (the index on the vectors) and calculate the value of the previously mentioned expression.
 
 This could be efficiently parallelized since this task is embarrassingly parallelizable. A parallel implementation could be added in the future.
 
@@ -18,7 +18,7 @@ File structure:
 
 
 
-To run the code do the following:
+## To run the code do the following:
 1. Open the `script.sh` file and replace the environment variables:
 
       * `LD_LIBRARY_PATH` with the path to libHalide.so
