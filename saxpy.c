@@ -20,7 +20,7 @@ int main(void)
         
         //Print results to terminal
         for(int i=0;i<N;i++){
-        	printf("C: result at index %d is %f\n",i,c[i]);
+        	printf("C: result at index %d is %.2f\n",i,c[i]);
         }
  
         
@@ -33,7 +33,7 @@ int main(void)
     		exit(1);
 	}
 	for(int i=0;i<N; i++){
-	fprintf(f, "%f\n", c[i]);
+	fprintf(f, "%.2f\n", c[i]);
 	}
 	fclose(f);
         return EXIT_SUCCESS;

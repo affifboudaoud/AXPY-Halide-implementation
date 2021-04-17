@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     ///Print the results to terminal
     for(int i=0;i<N; i++){
 	
-	printf("Halide: result at index %d is %f\n",i,c(i));
+	printf("Halide: result at index %d is %.2f\n",i,c(i));
     
     }
     
@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
     		exit(1);
 	}
 	for(int i=0;i<N; i++){
-	fprintf(f, "%f\n", c(i));
+	fprintf(f, "%.2f\n", c(i));
 	}
 	fclose(f);
     
