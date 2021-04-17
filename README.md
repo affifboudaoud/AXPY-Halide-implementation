@@ -6,9 +6,13 @@ To do this we simply define a Hadile Func that has a variable x (the index on th
 This could be efficiently parallelized since this task is embarrassingly parallelizable. A parallel implementation could be added in the future.
 
 File structure:
+
 * `saxpy.c` :  C code containing the implementation of the routine. This code also writes the results of a test case to a txt file for comparaison.
 * `saxpy.cpp`: C++ Code containing the Halide implementation of the routine. This code also writes the results of a test case to a txt file for comparaison.
 * `script.sh`: A shell script to compile and run both programs and compare results using the diff command. 
+* `Installation_logs`: File containing installation logs of LLVM and Halide.
+     .* `logs.txt`: logs of the installation using the `script` command.
+     .* Screen captures during the installation.
 
 
 
